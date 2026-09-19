@@ -83,9 +83,49 @@ function GoogleMark() {
 
 function App() {
   const [showPassword, setShowPassword] = useState(false)
+  const [values, setValues] = useState({ email: '', password: '' })
+  const [errors, setErrors] = useState({ email: '', password: '' })
+  const [formMessage, setFormMessage] = useState('')
+
+  const validateField = (name: 'email' | 'password', value: string) => {
+    if (!value.trim()) return name === 'email' ? 'Enter your email address.' : 'Enter your password.'
+
+    if (name === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      return 'Enter a valid email address.'
+    }
+
+    if (name === 'password' && value.length < 8) {
+      return 'Password must be at least 8 characters.'
+    }
+
+    return ''
+  }
+
+  const updateField = (name: 'email' | 'password', value: string) => {
+    setValues((current) => ({ ...current, [name]: value }))
+    setFormMessage('')
+
+    if (errors[name]) {
+      setErrors((current) => ({ ...current, [name]: validateField(name, value) }))
+    }
+  }
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+
+    const nextErrors = {
+      email: validateField('email', values.email),
+      password: validateField('password', values.password),
+    }
+
+    setErrors(nextErrors)
+
+    if (nextErrors.email || nextErrors.password) {
+      setFormMessage('Check the highlighted fields and try again.')
+      return
+    }
+
+    setFormMessage('Your details are valid. No password login is connected for this assessment.')
   }
 
   return (
@@ -105,6 +145,11 @@ function App() {
                 type="email"
                 name="email"
                 placeholder="Email address"
+                value={values.email}
+                error={Boolean(errors.email)}
+                helperText={errors.email}
+                onChange={(event) => updateField('email', event.target.value)}
+                onBlur={(event) => setErrors((current) => ({ ...current, email: validateField('email', event.target.value) }))}
                 slotProps={{ htmlInput: { 'aria-label': 'Email address' } }}
               />
               <TextField
@@ -112,6 +157,11 @@ function App() {
                 type={showPassword ? 'text' : 'password'}
                 name="password"
                 placeholder="Password"
+                value={values.password}
+                error={Boolean(errors.password)}
+                helperText={errors.password}
+                onChange={(event) => updateField('password', event.target.value)}
+                onBlur={(event) => setErrors((current) => ({ ...current, password: validateField('password', event.target.value) }))}
                 slotProps={{
                   htmlInput: { 'aria-label': 'Password' },
                   input: {
@@ -133,6 +183,13 @@ function App() {
             </div>
 
             <Button className="login-button" type="submit" fullWidth variant="contained">Log in</Button>
+            <Typography
+              className={`form-message ${errors.email || errors.password ? 'error' : ''}`}
+              component="p"
+              aria-live="polite"
+            >
+              {formMessage}
+            </Typography>
 
             <div className="divider" aria-hidden="true">
               <span />

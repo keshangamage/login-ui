@@ -80,6 +80,11 @@
   border-color: #aeb5b0;
 }
 
+.fields .MuiFormHelperText-root {
+  margin: 7px 22px 2px;
+  font-size: 0.76rem;
+}
+
 .fields .MuiIconButton-root {
   margin-right: 4px;
   color: #7e857f;
@@ -111,12 +116,25 @@
   transform: translateY(-1px);
 }
 
+.form-message.MuiTypography-root {
+  min-height: 18px;
+  margin-top: 9px;
+  color: #4f7650;
+  font-size: 0.76rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.form-message.error.MuiTypography-root {
+  color: #c43d3d;
+}
+
 .divider {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 18px;
-  margin: 35px 0 26px;
+  margin: 25px 0 26px;
   color: #798079;
 }
 
