@@ -1,1 +1,26 @@
-@import "tailwindcss";
+@import '@fontsource-variable/manrope';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: #fff;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+::selection {
+  background: #cce4c4;
+  color: #171a18;
+}
