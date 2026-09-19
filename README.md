@@ -1,75 +1,57 @@
-# React + TypeScript + Vite
+# Login UI Assessment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive login experience built with React, Vite, TypeScript, and Material UI. It includes client-side form validation, Firebase Google authentication, and a protected handoff screen that displays the authenticated user's access token.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+cp .env.example .env
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+The page opens at `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Connect Firebase
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Create a project in the [Firebase console](https://console.firebase.google.com/).
+2. Add a Web app to that project.
+3. Open **Project settings > General > Your apps > SDK setup and configuration**.
+4. Copy `.env.example` to `.env` and replace every placeholder with the corresponding Firebase value.
+5. Open **Authentication > Sign-in method**, add the Google provider, select a support email, and enable it.
+6. Restart the Vite development server after changing `.env`.
 
+The Firebase Web configuration identifies the project but does not grant administrative access. The local `.env` file is excluded from Git.
+
+## Quality checks
+
+```bash
+npm run lint
+npm run build
 ```
+
+## Deploy to Firebase Hosting
+
+The included `firebase.json` serves the Vite build and rewrites client-side routes to `index.html`.
+
+```bash
+npm run build
+npx firebase-tools login
+npx firebase-tools use --add
+npx firebase-tools deploy --only hosting
+```
+
+After deployment, confirm the hosted domain appears under **Authentication > Settings > Authorized domains** in Firebase.
+
+## Project structure
+
+```text
+src/
+  components/  Reusable visual elements
+  lib/         Firebase initialization
+  pages/       Login and access-token screens
+```
+
+## Security note
+
+The access token is intentionally shown to satisfy the assessment. Treat it as sensitive data: do not log it, commit it, or include it in screenshots and public issue reports.
