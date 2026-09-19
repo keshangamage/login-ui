@@ -167,8 +167,17 @@
   height: 22px;
 }
 
+.auth-error.MuiTypography-root {
+  min-height: 18px;
+  margin: 8px 12px 0;
+  color: #c43d3d;
+  font-size: 0.76rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
 .register-copy.MuiTypography-root {
-  margin-top: 43px;
+  margin-top: 25px;
   color: var(--muted);
   text-align: center;
   font-size: 0.92rem;
@@ -391,6 +400,130 @@
   line-height: 1.35;
 }
 
+.token-shell {
+  display: grid;
+  min-height: 100dvh;
+  padding: 32px;
+  place-items: center;
+  background:
+    radial-gradient(circle at 15% 5%, rgba(183, 213, 173, 0.5), transparent 32%),
+    radial-gradient(circle at 86% 92%, rgba(232, 242, 228, 0.9), transparent 28%),
+    #f8faf7;
+}
+
+.token-card {
+  position: relative;
+  width: min(100%, 780px);
+  padding: clamp(32px, 6vw, 70px);
+  border: 1px solid rgba(23, 26, 24, 0.09);
+  border-radius: 36px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 26px 80px rgba(49, 73, 47, 0.12);
+  text-align: center;
+}
+
+.back-button.MuiButton-root {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  color: #59615b;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.success-mark,
+.token-icon {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  margin: 20px auto 24px;
+  border-radius: 50%;
+  place-items: center;
+  background: var(--sage-100);
+  color: #4e8841;
+}
+
+.success-mark svg {
+  font-size: 34px;
+}
+
+.token-eyebrow.MuiTypography-root {
+  color: #639157;
+  font-size: 0.76rem;
+  font-weight: 780;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.token-card h1 {
+  margin-top: 10px;
+  font-size: clamp(2.1rem, 6vw, 3.8rem);
+  font-weight: 780;
+  letter-spacing: -0.055em;
+  line-height: 1.1;
+}
+
+.token-email.MuiTypography-root {
+  margin-top: 9px;
+  color: var(--muted);
+}
+
+.token-output {
+  margin-top: 38px;
+  overflow: hidden;
+  border: 1px solid #dce3da;
+  border-radius: 20px;
+  background: #f5f8f4;
+  text-align: left;
+}
+
+.token-output-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px 10px 20px;
+  border-bottom: 1px solid #dce3da;
+}
+
+.token-output-header h2 {
+  font-size: 0.79rem;
+  font-weight: 780;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.token-output code {
+  display: block;
+  max-height: 220px;
+  overflow: auto;
+  padding: 20px;
+  color: #354035;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.token-note.MuiTypography-root {
+  max-width: 590px;
+  margin: 20px auto 0;
+  color: #7a827b;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.token-empty p {
+  margin: 14px auto 28px;
+  color: var(--muted);
+}
+
+.token-empty .MuiButton-root {
+  border-radius: 999px;
+  padding: 11px 24px;
+  text-transform: none;
+}
+
 @media (max-width: 1050px) {
   .login-shell {
     grid-template-columns: minmax(430px, 1fr) minmax(410px, 0.9fr);
@@ -460,6 +593,20 @@
 
   .register-copy.MuiTypography-root {
     margin-top: 36px;
+  }
+
+  .token-shell {
+    padding: 16px;
+  }
+
+  .token-card {
+    padding: 76px 22px 32px;
+    border-radius: 26px;
+  }
+
+  .back-button.MuiButton-root {
+    top: 17px;
+    left: 12px;
   }
 }
 
