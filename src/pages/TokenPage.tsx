@@ -52,9 +52,6 @@ export function TokenPage() {
           </div>
           <code>{accessToken}</code>
         </div>
-        <Typography component="p" className="token-note">
-          This value is sensitive. It is shown only because the assessment requests it; do not share it publicly.
-        </Typography>
       </section>
     </main>
   )
