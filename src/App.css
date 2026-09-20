@@ -249,119 +249,9 @@
 .productivity-illustration {
   position: relative;
   z-index: 1;
-  width: min(82%, 690px);
-  margin-top: -65px;
-  overflow: visible;
-}
-
-.productivity-illustration * {
-  vector-effect: non-scaling-stroke;
-}
-
-.orbit-line {
-  fill: none;
-  stroke: var(--sage-300);
-  stroke-linecap: round;
-  stroke-width: 4;
-}
-
-.orbit-dot,
-.status-dot {
-  fill: var(--sage-500);
-}
-
-.floating-card rect,
-.task-card rect:first-child {
-  fill: rgba(255, 255, 255, 0.88);
-  stroke: #252925;
-  stroke-width: 2;
-}
-
-.floating-card circle:not(.status-dot) {
-  fill: var(--sage-100);
-  stroke: #252925;
-  stroke-width: 2;
-}
-
-.floating-card path {
-  fill: none;
-  stroke: #252925;
-  stroke-linecap: round;
-  stroke-width: 2;
-}
-
-.hair,
-.leg {
-  fill: #181b19;
-  stroke: #181b19;
-  stroke-linejoin: round;
-  stroke-width: 3;
-}
-
-.skin,
-.arm {
-  fill: #fff;
-  stroke: #181b19;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 3;
-}
-
-.person > path:not(.hair, .shirt, .heart, .arm, .leg) {
-  fill: none;
-  stroke: #181b19;
-  stroke-linecap: round;
-  stroke-width: 3;
-}
-
-.shirt {
-  fill: #9dca90;
-  stroke: #181b19;
-  stroke-linejoin: round;
-  stroke-width: 3;
-}
-
-.heart {
-  fill: none;
-  stroke: white;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 5;
-}
-
-.task-card text {
-  fill: var(--ink);
-  font-family: 'Manrope Variable', sans-serif;
-  font-size: 23px;
-  font-weight: 760;
-}
-
-.task-card .task-label {
-  fill: #757c76;
-  font-size: 15px;
-  font-weight: 540;
-}
-
-.task-card .progress-track {
-  fill: #e2e7e1;
-  stroke: none;
-}
-
-.task-card .progress-value {
-  fill: var(--sage-500);
-  stroke: none;
-}
-
-.task-card .progress-ring {
-  fill: none;
-  stroke: var(--sage-500);
-  stroke-dasharray: 117 28;
-  stroke-linecap: round;
-  stroke-width: 7;
-}
-
-.task-card .progress-number {
-  font-size: 13px;
+  width: min(76%, 630px);
+  height: auto;
+  margin-top: -75px;
 }
 
 .visual-copy {
@@ -619,15 +509,6 @@
     animation: form-in 550ms cubic-bezier(0.2, 0.72, 0.25, 1) both;
   }
 
-  .floating-card {
-    animation: gentle-float 5s ease-in-out infinite;
-    transform-box: fill-box;
-    transform-origin: center;
-  }
-
-  .card-right {
-    animation-delay: -2.5s;
-  }
 }
 
 @keyframes illustration-in {
@@ -638,9 +519,4 @@
 @keyframes form-in {
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes gentle-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
 }

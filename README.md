@@ -2,6 +2,8 @@
 
 A responsive login experience built with React, Vite, TypeScript, and Material UI. It includes client-side form validation, Firebase Google authentication, and a protected handoff screen that displays the authenticated user's access token.
 
+The login artwork uses the [Tasks illustration from unDraw](https://undraw.co/illustration/tasks_l9ct), recolored to match the interface.
+
 **Live application:** [https://login-ui-3acd0.web.app](https://login-ui-3acd0.web.app)
 
 ## Run locally

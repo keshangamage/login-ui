@@ -12,7 +12,7 @@ import {
 import { VisibilityOffOutlined, VisibilityOutlined } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
 import { GoogleMark } from '../components/GoogleMark'
-import { ProductivityIllustration } from '../components/ProductivityIllustration'
+import tasksIllustration from '../assets/undraw-tasks.svg'
 import { getFirebaseAuth, isFirebaseConfigured } from '../lib/firebase'
 
 function getAuthMessage(error: unknown) {
@@ -191,7 +191,11 @@ export function LoginPage() {
 
       <aside className="visual-panel" aria-label="Productivity illustration">
         <div className="visual-badge"><span />Your calm workspace</div>
-        <ProductivityIllustration />
+        <img
+          className="productivity-illustration"
+          src={tasksIllustration}
+          alt="A person organizing a list of tasks"
+        />
         <div className="visual-copy">
           <div className="carousel-dots" aria-hidden="true"><span /><span /><span className="active" /></div>
           <Typography component="h2">Make your work easier,<br />one task at a time.</Typography>
