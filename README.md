@@ -2,6 +2,8 @@
 
 A responsive login experience built with React, Vite, TypeScript, and Material UI. It includes client-side form validation, Firebase Google authentication, and a protected handoff screen that displays the authenticated user's access token.
 
+**Live application:** [https://login-ui-3acd0.web.app](https://login-ui-3acd0.web.app)
+
 ## Run locally
 
 ```bash
